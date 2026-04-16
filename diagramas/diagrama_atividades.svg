@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="720" font-family="Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="700" height="720" fill="#f8f9fa"/>
+  <text x="350" y="35" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a1a2e">Diagrama de Atividades — Busca de Perguntas</text>
+
+  <!-- Start -->
+  <circle cx="350" cy="70" r="18" fill="#1a1a2e"/>
+  <line x1="350" y1="88" x2="350" y2="115" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Atividade 1 -->
+  <rect x="200" y="115" width="300" height="44" rx="22" fill="#4a90d9" stroke="#2c6fad" stroke-width="2"/>
+  <text x="350" y="142" text-anchor="middle" fill="white" font-weight="bold">Usuário acessa a página principal</text>
+  <line x1="350" y1="159" x2="350" y2="185" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Atividade 2 -->
+  <rect x="185" y="185" width="330" height="44" rx="22" fill="#4a90d9" stroke="#2c6fad" stroke-width="2"/>
+  <text x="350" y="212" text-anchor="middle" fill="white" font-weight="bold">Sistema exibe lista completa</text>
+  <line x1="350" y1="229" x2="350" y2="258" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Atividade 3 -->
+  <rect x="175" y="258" width="350" height="44" rx="22" fill="#4a90d9" stroke="#2c6fad" stroke-width="2"/>
+  <text x="350" y="285" text-anchor="middle" fill="white" font-weight="bold">Usuário digita palavra-chave</text>
+  <line x1="350" y1="302" x2="350" y2="330" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Decisão: campo vazio? -->
+  <polygon points="350,330 440,368 350,406 260,368" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+  <text x="350" y="363" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Campo</text>
+  <text x="350" y="380" text-anchor="middle" fill="white" font-weight="bold" font-size="12">vazio?</text>
+
+  <!-- Sim -> volta ao exibir lista -->
+  <line x1="260" y1="368" x2="180" y2="368" stroke="#444" stroke-width="2"/>
+  <line x1="180" y1="368" x2="180" y2="207" stroke="#444" stroke-width="2"/>
+  <line x1="180" y1="207" x2="185" y2="207" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="215" y="358" font-size="11" fill="#555">Sim</text>
+
+  <!-- Não -> envia requisição -->
+  <line x1="350" y1="406" x2="350" y2="432" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="360" y="422" font-size="11" fill="#555">Não</text>
+
+  <!-- Atividade 4 -->
+  <rect x="165" y="432" width="370" height="44" rx="22" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+  <text x="350" y="459" text-anchor="middle" fill="white" font-weight="bold">Frontend envia GET /perguntas?q=</text>
+  <line x1="350" y1="476" x2="350" y2="504" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Decisão: backend ok? -->
+  <polygon points="350,504 440,542 350,580 260,542" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
+  <text x="350" y="537" text-anchor="middle" fill="white" font-weight="bold" font-size="12">Backend</text>
+  <text x="350" y="554" text-anchor="middle" fill="white" font-weight="bold" font-size="12">ok?</text>
+
+  <!-- Não (erro) -->
+  <line x1="440" y1="542" x2="580" y2="542" stroke="#c0392b" stroke-width="2"/>
+  <rect x="555" y="518" width="120" height="44" rx="22" fill="#c0392b" stroke="#a93226" stroke-width="2"/>
+  <text x="615" y="540" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Exibir mensagem</text>
+  <text x="615" y="556" text-anchor="middle" fill="white" font-size="11" font-weight="bold">de erro</text>
+  <line x1="615" y1="562" x2="615" y2="460" stroke="#c0392b" stroke-width="2"/>
+  <line x1="615" y1="460" x2="535" y2="460" stroke="#c0392b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="450" y="534" font-size="11" fill="#c0392b">Não</text>
+
+  <!-- Sim -->
+  <line x1="350" y1="580" x2="350" y2="608" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="360" y="596" font-size="11" fill="#555">Sim</text>
+
+  <!-- Atividade 5 -->
+  <rect x="160" y="608" width="380" height="44" rx="22" fill="#4a90d9" stroke="#2c6fad" stroke-width="2"/>
+  <text x="350" y="635" text-anchor="middle" fill="white" font-weight="bold">Sistema exibe lista filtrada</text>
+  <line x1="350" y1="652" x2="350" y2="678" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- End -->
+  <circle cx="350" cy="695" r="16" fill="none" stroke="#1a1a2e" stroke-width="3"/>
+  <circle cx="350" cy="695" r="10" fill="#1a1a2e"/>
+</svg>

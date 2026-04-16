@@ -1,0 +1,30 @@
+stateDiagram-v2
+    [*] --> Rascunho : usuário inicia criação
+
+    Rascunho --> Publicada : usuário submete o formulário\ncom título e corpo válidos
+
+    Rascunho --> [*] : usuário cancela a criação
+
+    Publicada --> ComRespostas : outro usuário\nposta uma resposta
+
+    Publicada --> Encerrada : autor encerra\na discussão manualmente
+
+    ComRespostas --> Encerrada : autor aceita uma\nresposta como solução\nou encerra manualmente
+
+    ComRespostas --> Publicada : única resposta\né removida
+
+    Encerrada --> Publicada : autor reabre\na pergunta
+
+    Encerrada --> [*] : pergunta é\nexcluída pelo autor\nou moderador
+
+    Publicada --> [*] : pergunta é\nexcluída pelo autor\nou moderador
+
+    note right of Publicada
+        Aceita novos votos
+        e novas respostas
+    end note
+
+    note right of Encerrada
+        Exibida como resolvida
+        Não aceita novas respostas
+    end note

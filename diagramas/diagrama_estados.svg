@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="580" font-family="Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0,10 3.5,0 7" fill="#444"/>
+    </marker>
+  </defs>
+  <rect width="820" height="580" fill="#f8f9fa"/>
+  <text x="410" y="35" text-anchor="middle" font-size="17" font-weight="bold" fill="#1a1a2e">Diagrama de Estados — Pergunta</text>
+
+  <!-- Start -->
+  <circle cx="80" cy="120" r="16" fill="#1a1a2e"/>
+  <line x1="96" y1="120" x2="148" y2="120" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Estado: Rascunho -->
+  <rect x="150" y="96" width="150" height="48" rx="10" fill="#95a5a6" stroke="#7f8c8d" stroke-width="2"/>
+  <text x="225" y="117" text-anchor="middle" fill="white" font-weight="bold">Rascunho</text>
+  <text x="225" y="134" text-anchor="middle" fill="white" font-size="11">em edição</text>
+
+  <!-- Rascunho -> Publicada -->
+  <line x1="300" y1="120" x2="378" y2="120" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="338" y="112" text-anchor="middle" font-size="11" fill="#27ae60">submete formulário</text>
+
+  <!-- Estado: Publicada -->
+  <rect x="380" y="96" width="160" height="48" rx="10" fill="#27ae60" stroke="#1e8449" stroke-width="2"/>
+  <text x="460" y="117" text-anchor="middle" fill="white" font-weight="bold">Publicada</text>
+  <text x="460" y="134" text-anchor="middle" fill="white" font-size="11">aceita votos e respostas</text>
+
+  <!-- Rascunho -> End (cancela) -->
+  <line x1="225" y1="144" x2="225" y2="530" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="225" y1="530" x2="718" y2="530" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="718" y1="530" x2="718" y2="505" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <text x="340" y="548" font-size="11" fill="#c0392b">cancela criação</text>
+
+  <!-- Publicada -> ComRespostas -->
+  <line x1="460" y1="144" x2="460" y2="218" stroke="#444" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="470" y="185" font-size="11" fill="#4a90d9">usuário posta resposta</text>
+
+  <!-- Estado: ComRespostas -->
+  <rect x="360" y="220" width="200" height="48" rx="10" fill="#4a90d9" stroke="#2c6fad" stroke-width="2"/>
+  <text x="460" y="241" text-anchor="middle" fill="white" font-weight="bold">Com Respostas</text>
+  <text x="460" y="258" text-anchor="middle" fill="white" font-size="11">em discussão ativa</text>
+
+  <!-- ComRespostas -> Publicada (única resp removida) -->
+  <path d="M 360 232 Q 250 210 300 144" stroke="#888" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <text x="235" y="198" font-size="10" fill="#888">resp. removida</text>
+
+  <!-- Publicada -> Encerrada (direto) -->
+  <line x1="540" y1="120" x2="640" y2="120" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="590" y="112" text-anchor="middle" font-size="11" fill="#e67e22">encerra manualmente</text>
+
+  <!-- ComRespostas -> Encerrada -->
+  <line x1="560" y1="244" x2="660" y2="244" stroke="#444" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="600" y="236" text-anchor="middle" font-size="11" fill="#e67e22">aceita resposta /</text>
+  <text x="600" y="252" text-anchor="middle" font-size="11" fill="#e67e22">encerra</text>
+
+  <!-- Estado: Encerrada -->
+  <rect x="660" y="96" width="140" height="176" rx="10" fill="#e67e22" stroke="#ca6f1e" stroke-width="2"/>
+  <text x="730" y="128" text-anchor="middle" fill="white" font-weight="bold">Encerrada</text>
+  <text x="730" y="148" text-anchor="middle" fill="white" font-size="11">exibida como</text>
+  <text x="730" y="164" text-anchor="middle" fill="white" font-size="11">resolvida</text>
+  <line x1="660" y1="180" x2="800" y2="180" stroke="white" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="730" y="200" text-anchor="middle" fill="white" font-size="11" font-style="italic">Não aceita</text>
+  <text x="730" y="216" text-anchor="middle" fill="white" font-size="11" font-style="italic">novas respostas</text>
+  <text x="730" y="234" text-anchor="middle" fill="white" font-size="11" font-style="italic">ou votos</text>
+  <text x="730" y="252" text-anchor="middle" fill="white" font-size="11" font-style="italic">novos</text>
+
+  <!-- Encerrada -> Publicada (reabre) -->
+  <path d="M 660 152 Q 600 300 540 140" stroke="#27ae60" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <text x="595" y="325" font-size="11" fill="#27ae60">autor reabre</text>
+
+  <!-- Encerrada -> End (excluída) -->
+  <line x1="730" y1="272" x2="730" y2="488" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <text x="742" y="385" font-size="11" fill="#c0392b">excluída</text>
+
+  <!-- Publicada -> End (excluída direto) -->
+  <line x1="460" y1="144" x2="460" y2="400" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="460" y1="400" x2="710" y2="490" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <text x="530" y="435" font-size="11" fill="#c0392b">excluída</text>
+
+  <!-- End -->
+  <circle cx="718" cy="505" r="16" fill="none" stroke="#1a1a2e" stroke-width="3"/>
+  <circle cx="718" cy="505" r="10" fill="#1a1a2e"/>
+
+  <!-- Nota Publicada -->
+  <rect x="30" y="300" width="210" height="56" rx="6" fill="#fffde7" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="40" y="320" font-size="11" fill="#555" font-weight="bold">Estado: Publicada</text>
+  <text x="40" y="338" font-size="11" fill="#555">✔ aceita votos</text>
+  <text x="40" y="354" font-size="11" fill="#555">✔ aceita novas respostas</text>
+  <line x1="225" y1="144" x2="135" y2="300" stroke="#f39c12" stroke-width="1" stroke-dasharray="3,3"/>
+</svg>
