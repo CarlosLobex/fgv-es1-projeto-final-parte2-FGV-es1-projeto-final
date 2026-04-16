@@ -1,0 +1,28 @@
+flowchart TD
+    A([Início]) --> B[Usuário acessa a página principal]
+    B --> C[Sistema exibe lista completa de perguntas]
+    C --> D[Usuário digita palavra-chave no campo de busca]
+    D --> E{Campo de busca\nvazio?}
+
+    E -- Sim --> C
+    E -- Não --> F[Frontend envia GET /perguntas?q=termo]
+
+    F --> G{Backend\nresponde com\nsucesso?}
+
+    G -- Não --> H[Exibir mensagem de erro de comunicação]
+    H --> D
+
+    G -- Sim --> I{Resultados\nencontrados?}
+
+    I -- Não --> J[Exibir: Nenhuma pergunta encontrada]
+    J --> D
+
+    I -- Sim --> K[Exibir lista filtrada de perguntas]
+    K --> L{Usuário clica\nem uma pergunta?}
+
+    L -- Sim --> M[Navegar para página de detalhes da pergunta]
+    M --> N([Fim])
+
+    L -- Não --> O{Usuário refina\na busca?}
+    O -- Sim --> D
+    O -- Não --> N
